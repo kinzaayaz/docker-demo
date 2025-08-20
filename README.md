@@ -1,38 +1,48 @@
-for creating docker file:
+# Docker Notes
+
+## Dockerfile + Commands
+```bash
+# ---------------- Dockerfile Example ----------------
 FROM baseimage
-WORKDIR / dirname
+WORKDIR /dirname
 COPY source dest
 # example: install dependencies or set environment
 RUN some-command
 CMD ["python", "app.py"]
 
-build docker image:  (single file with all the dep and lib to run the program)
+# ---------------- Docker Commands ----------------
+
+# Build Docker image (single file with all the dep and lib to run the program)
 docker build .
 
-list all docker images:
+# List all docker images
 docker image ls
-<!-- docker run (image id) -->
-build image:
-docker build -t mynginx
+# docker run (image id)
 
-run container:
+# Build image with tag
+docker build -t mynginx .
+
+# Run container
 docker run -d -p 8080:80 mynginx
 
-docker ps: for current running container with all of its detail
-docker stop container_name : to stop container
+# Show running containers
+docker ps   # current running containers with details
 
-running container in detavhed mode:
-docker run -d -p 8080:80 mynginx (-d--> detached mode)
+# Stop a container
+docker stop container_name
 
-useful info for container management:
-docker ps -a : list all containers
-docker rm container_name: to remove a container
-docker run -d --rm -p 8083:80 mynginx: when container stops it removes automaticaly (--rm)
-docker run -d --rm --name "desired_name" -p 8083:80 mynginx :for giving container desired name
+# Running container in detached mode
+docker run -d -p 8080:80 mynginx   # -d --> detached mode
 
-managing docker images:
-docker build -t tag_name:version : for tagging image
+# Useful info for container management
+docker ps -a                                # list all containers
+docker rm container_name                    # remove a container
+docker run -d --rm -p 8083:80 mynginx       # auto-remove container when it stops
+docker run -d --rm --name desired_name -p 8083:80 mynginx   # give container desired name
 
-deleting image:
-docker rmi image_name:version : for deleting image
-docker image image_id : 
+# Managing docker images
+docker build -t tag_name:version .   # for tagging image
+
+# Deleting images
+docker rmi image_name:version
+docker rmi image_id
