@@ -6,14 +6,11 @@
 
 # EXPOSE 80
 
+FROM nginx:alpine
 
-FROM python:3.12-slim
+WORKDIR /myapp
 
-# Set working directory inside container
-WORKDIR /app
+# HTML files nginx ke default folder me copy kar do
+COPY . /usr/share/nginx/html
 
-# Copy Python file into container
-COPY test.py .
-
-# Run the Python file when container starts
-CMD ["python", "test.py"]
+EXPOSE 80
