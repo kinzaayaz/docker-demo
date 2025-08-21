@@ -57,3 +57,16 @@ docker pull image_name:version
 docker run -p port image_name:version
 
 #docker container with interactive mode
+docker run -it image_id
+
+#push image in docker hub
+create repo in dockerhub
+docker login in terminal
+create image 
+docker push image_name:tagname
+
+#rename image
+docker tag older image_name:version new image_name:tag
+
+#pull image remotely
+docker pull image_name:tagname
