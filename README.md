@@ -17,7 +17,6 @@ docker build .
 
 # List all docker images
 docker image ls
-# docker run (image id)
 
 # Build image with tag
 docker build -t mynginx .
@@ -46,3 +45,15 @@ docker build -t tag_name:version .   # for tagging image
 # Deleting images
 docker rmi image_name:version
 docker rmi image_id
+
+#update project
+create image 
+docker run -d --rm --name "index" -p 8081:80 index:01
+
+#predefine images
+docker pull image_name
+(or)
+docker pull image_name:version
+docker run -p port image_name:version
+
+#docker container with interactive mode
